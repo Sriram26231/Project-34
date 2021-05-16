@@ -4,9 +4,12 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint= Matter.Constraint;
+const Mouse = Matter.Mouse;
+const MouseConstraint = Matter.MouseConstraint;
 
 var b1,b2,b3,b4,b5, roof;
 var r1;
+var mConstraint;
 
 function preload()
 {
@@ -25,7 +28,7 @@ function setup() {
 	};
 
 	mConstraint = MouseConstraint.create(engine, options);
-	World.add(world,mContsraint)
+	World.add(world,mConstraint)
 
 	//Create the Bodies Here.
 	roof = new Roof(400,200,300,50)
@@ -73,6 +76,6 @@ function keyPressed() {
 	}
 }
 function mouseDragged(){
-	Matter.Bpdy.setPosition(bob1.body, {x:mouseX, y:mouseY});
+	Matter.Body.setPosition(b1.body, {x:mouseX, y:mouseY});
 }
 
